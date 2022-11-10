@@ -18,4 +18,7 @@ public class SignInFormUI {
 
     public static final Target SUBMIT_BUTTON = Target.the("Submit Button")
             .locatedBy("//div[contains(@class, 'Overlay')]//button[text()=\"Submit\"]");
+
+    public static final Target LOADING_ICON = Target.the("Loading Icon")
+            .locatedBy("//div[contains(@class, 'Overlay')]//div[@class='Loading']");
 }
