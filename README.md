@@ -13,6 +13,20 @@ You can use the following links to download.
   * Download - https://maven.apache.org/download.cgi
   * Install - https://maven.apache.org/install.html
 
+The test will run in Chrome browser by default. You need to download chromedriver for your Chrome browser version from the following link:
+* https://chromedriver.chromium.org/
+
+Once chromedriver is downloaded and extracted, place it in the following directory in the cloned project:
+
+  ```sh
+  Mac:      src/test/resources/webdriver/mac
+  Windows:  src/test/resources/webdriver/windows
+  ```
+
+Just make sure that your extracted chromedriver is named "chromedriver" and not something like "chromedriver 1" etc.
+
+
+
 Once Java and Maven are set up on your machine, go to root of the project cloned and run the following command:
 
   ```sh
