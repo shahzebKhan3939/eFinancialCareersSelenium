@@ -1,4 +1,4 @@
-package serenity.constants;
+package helper.constants;
 
 public class Waits {
 
