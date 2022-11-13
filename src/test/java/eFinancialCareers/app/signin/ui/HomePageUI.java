@@ -12,7 +12,7 @@ public class HomePageUI {
 
     public static final By PAGE_LOADER_SCREEN = By.xpath("//efc-page-loader[@class='active']");
 
-    public static final By LOGGED_IN_EMAIL = By.xpath("//ul[@id='logged-in-dropdown']//div[contains(@class, 'user-details')]//span[text()='{0}']");
+    public static final By LOGGED_IN_EMAIL = By.xpath("//ul[@id='logged-in-dropdown']//div[contains(@class, 'user-details')]//span");
 
 //    public static String loggedInEmail() {
 //        return LOGGED_IN_EMAIL.resolveFor(OnStage.theActorInTheSpotlight()).getTextContent();

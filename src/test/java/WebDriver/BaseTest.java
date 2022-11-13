@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
+import static helper.constants.Waits.TEN;
+
 public class BaseTest {
     protected static ChromeDriver webDriver;
 
@@ -19,7 +21,7 @@ public class BaseTest {
         }
 
         webDriver =new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(TEN, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
     }
 

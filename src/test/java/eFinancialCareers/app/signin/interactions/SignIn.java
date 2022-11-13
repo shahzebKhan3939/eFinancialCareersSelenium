@@ -1,11 +1,18 @@
 package eFinancialCareers.app.signin.interactions;
 
-import eFinancialCareers.app.signin.ui.LandingPageUI;
+import helper.methods.WaitUntil;
+import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static WebDriver.BaseTest.getWebDriver;
+import static eFinancialCareers.app.signin.ui.HomePageUI.*;
+import static eFinancialCareers.app.signin.ui.LandingPageUI.HOME_LINK_IMAGE;
 import static eFinancialCareers.app.signin.ui.LandingPageUI.SIGN_IN_BUTTON;
 import static eFinancialCareers.app.signin.ui.SignInFormUI.*;
+import static helper.constants.Waits.FIFTEEN;
+import static helper.constants.Waits.THIRTY;
+import static helper.methods.WaitUntil.elementIsNotPresent;
+import static helper.methods.WaitUntil.elementIsPresent;
 
 public class SignIn {
     private static final ChromeDriver driver;
@@ -18,9 +25,15 @@ public class SignIn {
         driver.get("https://www.efinancialcareers.co.uk/");
     }
 
+    public  static void verifySignIn() {
+        Assert.assertTrue(driver.findElement(HOME_LINK_IMAGE).isDisplayed());
+        Assert.assertTrue(driver.findElement(SIGN_IN_BUTTON).isDisplayed());
+    }
+
     public static void openSignInForm() {
 
         driver.findElement(SIGN_IN_BUTTON).click();
+        WaitUntil.elementIsPresent(SIGN_IN_FORM, FIFTEEN);
 
 //        return Task.where("{0} opens Sing In form",
 //                WaitUntil.the(SIGN_IN_BUTTON, isPresent()),
@@ -50,6 +63,10 @@ public class SignIn {
     }
 
     public static void waitForSignInFormToClose() {
+
+        WaitUntil.elementIsNotPresent(SIGN_IN_FORM, FIFTEEN);
+        WaitUntil.elementIsNotPresent(PAGE_LOADER_SCREEN, THIRTY);
+
 //        return Task.where("{0} waits for Sing In form to close",
 //                WaitUntil.the(SIGN_IN_FORM, isNotPresent())
 //                        .forNoMoreThan(FIFTEEN).seconds(),
@@ -59,6 +76,9 @@ public class SignIn {
     }
 
     public static void openLoggedInDropdown() {
+        WaitUntil.elementIsPresent(USER_AVATAR, FIFTEEN);
+        driver.findElement(USER_AVATAR).click();
+        WaitUntil.elementIsPresent(USER_DROPDOWN_MENU);
 //        return Task.where("{0} opens Logged In Dropdown",
 //                WaitUntil.the(USER_AVATAR, isPresent())
 //                        .forNoMoreThan(THIRTY).seconds(),
@@ -68,8 +88,17 @@ public class SignIn {
 //        );
     }
 
+    public static void verifySignInEmail(String email) {
+
+        Assert.assertEquals(driver.findElement(LOGGED_IN_EMAIL).getText(), email);
+
+    }
 
     public static void closeLoggedInDropdown() {
+        driver.findElement(USER_AVATAR).click();
+        WaitUntil.elementIsNotPresent(USER_DROPDOWN_MENU);
+
+
 //        return Task.where("{0} closes Logged In Dropdown",
 //                Click.on(USER_AVATAR),
 //                WaitUntil.the(USER_DROPDOWN_MENU, isNotPresent())

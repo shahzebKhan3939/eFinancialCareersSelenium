@@ -2,6 +2,8 @@ package helper.constants;
 
 public class Waits {
 
+    public static final Integer FIVE = 5;
+
     public static final Integer TEN = 10;
 
     public static final Integer FIFTEEN = 15;
