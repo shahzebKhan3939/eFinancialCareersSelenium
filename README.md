@@ -27,13 +27,7 @@ Just make sure that your extracted chromedriver is named "chromedriver" and not 
 
 
 
-Once Java and Maven are set up on your machine, go to root of the project cloned, make sure that you are on selenium-java branch, if you aren't run the following command:
-
-  ```sh
-  git checkout selenium-java
-  ```
-
-Use the following command to run test:
+Once Java and Maven are set up on your machine, go to root of the project cloned and run the following command:
 
   ```sh
   mvn clean test -Dtest=eFinancialCareers
