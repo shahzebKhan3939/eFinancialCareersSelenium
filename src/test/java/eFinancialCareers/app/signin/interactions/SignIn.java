@@ -11,23 +11,18 @@ import static eFinancialCareers.app.signin.ui.LandingPageUI.SIGN_IN_BUTTON;
 import static eFinancialCareers.app.signin.ui.SignInFormUI.*;
 import static helper.constants.Waits.FIFTEEN;
 import static helper.constants.Waits.THIRTY;
-import static helper.methods.Interactions.clickOn;
-import static helper.methods.Interactions.enter;
+import static helper.methods.Interactions.*;
+import static helper.methods.State.*;
 
 public class SignIn {
-    private static final ChromeDriver driver;
-
-    static {
-        driver = getWebDriver();
-    }
 
     public  static void openSignInPage() {
-        driver.get("https://www.efinancialcareers.co.uk/");
+        openPage("https://www.efinancialcareers.co.uk/");
     }
 
     public  static void verifySignInPageIsOpened() {
-        Assert.assertTrue(driver.findElement(HOME_LINK_IMAGE).isDisplayed());
-        Assert.assertTrue(driver.findElement(SIGN_IN_BUTTON).isDisplayed());
+        Assert.assertTrue(elementPresent(HOME_LINK_IMAGE));
+        Assert.assertTrue(elementPresent(SIGN_IN_BUTTON));
     }
 
     public static void openSignInForm() {
@@ -43,8 +38,12 @@ public class SignIn {
     }
 
     public static void waitForSignInFormToClose() {
-        WaitUntil.elementIsNotPresent(SIGN_IN_FORM, FIFTEEN);
-        WaitUntil.elementIsNotPresent(PAGE_LOADER_SCREEN, THIRTY);
+        WaitUntil.elementIsNotPresent(SIGN_IN_FORM);
+        WaitUntil.elementIsNotPresent(PAGE_LOADER_SCREEN);
+    }
+
+    public static void verifySignInButtonNotPresent() {
+        Assert.assertTrue(elementNotPresent(SIGN_IN_BUTTON));
     }
 
     public static void openLoggedInDropdown() {
@@ -54,7 +53,7 @@ public class SignIn {
     }
 
     public static void verifySignInEmail(String email) {
-        Assert.assertEquals(driver.findElement(LOGGED_IN_EMAIL).getText(), email);
+        Assert.assertEquals(textOf(LOGGED_IN_EMAIL), email);
     }
 
     public static void closeLoggedInDropdown() {

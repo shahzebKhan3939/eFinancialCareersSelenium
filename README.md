@@ -12,11 +12,20 @@ You can use the following links to download.
 * Maven
   * Download - https://maven.apache.org/download.cgi
   * Install - https://maven.apache.org/install.html
+  
+Once Java and Maven are set up on your machine, go to root of the project cloned and run the following command:
 
-The test will run in Chrome browser by default. You need to download chromedriver for your Chrome browser version from the following link:
+  ```sh
+  mvn clean test -Dtest=eFinancialCareers
+  ```
+
+### Note:
+
+On running test, if you get an error related to chromedriver, it is due to chromedriver mismatch. You need to download chromedriver for your specific Chrome browser version from the following link: 
+
 * https://chromedriver.chromium.org/
 
-Once chromedriver is downloaded and extracted, place it in the following directory in the cloned project:
+Once chromedriver is downloaded and extracted, replace it in the following directory in the cloned project:
 
   ```sh
   Mac:      src/test/resources/webdriver/mac
@@ -24,11 +33,3 @@ Once chromedriver is downloaded and extracted, place it in the following directo
   ```
 
 Just make sure that your extracted chromedriver is named "chromedriver" and not something like "chromedriver 1" etc.
-
-
-
-Once Java and Maven are set up on your machine, go to root of the project cloned and run the following command:
-
-  ```sh
-  mvn clean test -Dtest=eFinancialCareers
-  ```

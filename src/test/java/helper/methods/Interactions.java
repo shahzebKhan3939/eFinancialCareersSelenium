@@ -18,6 +18,10 @@ public class Interactions {
         driver = getWebDriver();
     }
 
+    public static void openPage(String url) {
+        driver.get(url);
+    }
+
     public static void clickOn(By locator) {
         driver.findElement(locator).click();
     }

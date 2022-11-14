@@ -12,5 +12,6 @@ public class SignIn {
         openLoggedInDropdown();
         verifySignInEmail(email);
         closeLoggedInDropdown();
+        verifySignInButtonNotPresent();
     }
 }
