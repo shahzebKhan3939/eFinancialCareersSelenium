@@ -36,5 +36,5 @@ Once Java and Maven are set up on your machine, go to root of the project cloned
 Use the following command to run test:
 
   ```sh
-  mvn test -Dtest=eFinancialCareers
+  mvn clean test -Dtest=eFinancialCareers
   ```
