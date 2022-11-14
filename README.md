@@ -27,7 +27,7 @@ On running test, if you get an error related to chromedriver, it is due to chrom
 
 Once chromedriver is downloaded and extracted, replace it in the following directory in the cloned project:
 
-  ```sh
+  ```
   Mac:      src/test/resources/webdriver/mac
   Windows:  src/test/resources/webdriver/windows
   ```
