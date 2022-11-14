@@ -5,8 +5,8 @@ import static eFinancialCareers.app.signin.interactions.SignIn.*;
 public class SignIn {
 
     public static void using(String email, String password) {
-        openLoginPage();
-        verifySignIn();
+        openSignInPage();
+        verifySignInPageIsOpened();
         openSignInForm();
         fillSignInForm(email, password);
         openLoggedInDropdown();
